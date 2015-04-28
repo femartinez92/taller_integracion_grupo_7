@@ -45,6 +45,8 @@ end
 
 group :production do
 	gem 'pg'
+	gem 'capistrano', '~> 3.1'
+	gem 'capistrano-rbenv', '~> 2.0'
 end
 
 gem 'spree', '3.0.0'
