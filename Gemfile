@@ -43,6 +43,9 @@ group :development, :test do
  # gem 'spring'
 end
 
+group :production do
+	gem 'pg'
+end
 
 gem 'spree', '3.0.0'
 #gem 'spree_auth_devise', github: 'spree/spree_auth_devise'
