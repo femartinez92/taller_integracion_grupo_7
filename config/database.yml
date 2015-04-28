@@ -25,5 +25,6 @@ production:
   encoding: unicode
   database: integracion_7
   pool: 5
-  host: ""
-  username: postgres
+  host: localhost
+  username: integracion_7
+  password: integracion_7
