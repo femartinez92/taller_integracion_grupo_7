@@ -26,5 +26,4 @@ production:
   database: integracion_7
   pool: 5
   host: localhost
-  username: integracion_7
-  password: M2yW.3*Hc 
+  username: postgres
