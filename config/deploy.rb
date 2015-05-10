@@ -79,7 +79,7 @@ set(:symlinks, [
 
 namespace :deploy do
 
-  #make sure we're deploying what we think we're deploying
+   make sure we're deploying what we think we're deploying
   before :deploy, "deploy:check_revision"
   # only allow a deploy with passing tests to deployed
   before :deploy, "deploy:run_tests"
