@@ -46,6 +46,7 @@ end
 group :production do
 	gem 'pg'
 <<<<<<< HEAD
+<<<<<<< HEAD
 	gem 'capistrano', '~> 3.1.0'
 	# rails specific capistrano funcitons
 	gem 'capistrano-rails', '~> 1.1.0'
@@ -55,6 +56,10 @@ group :production do
 	gem 'capistrano-rbenv', "~> 2.0" 
 =======
 >>>>>>> parent of 175e426... gems capistrano
+=======
+	gem 'capistrano', '~> 3.1'
+	gem 'capistrano-rbenv', '~> 2.0'
+>>>>>>> parent of c5402f1... capistrano 3
 end
 
 gem 'spree', '3.0.0'
