@@ -36,8 +36,6 @@ set :rbenv_ruby, '2.2.0'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
-set :assets_roles, [:app]
-
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
@@ -84,7 +82,7 @@ namespace :deploy do
   # only allow a deploy with passing tests to deployed
   before :deploy, "deploy:run_tests"
   # compile assets locally then rsync
-  # after 'deploy:symlink:shared', 'deploy:compile_assets_locally'
+  after 'deploy:symlink:shared', 'deploy:compile_assets_locally'
   after :finishing, 'deploy:cleanup'
 
   # remove the default nginx configuration as it will tend
