@@ -12,6 +12,19 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'spree/home#index'
 
+
+ namespace :api, defaults: {format: 'json'} do
+
+    #Archivos relevantes para la API
+    ## /lib/api_constraints
+    ## /app/controllers/api  (todo lo que esta dentro de esa carpeta)
+
+    scope module: :v1 do
+       post 'register_group' => 'b2b#create_group'
+
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
