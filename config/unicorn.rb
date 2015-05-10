@@ -42,12 +42,6 @@ pid APP_PATH + "/tmp/pids/unicorn.pid"
 stderr_path APP_PATH + "/log/unicorn.stderr.log"
 stdout_path APP_PATH + "/log/unicorn.stderr.log"
 
-before_exec do |_|
- ENV["BUNDLE_GEMFILE"] = file.join(APP_PATH, 'Gemfile')
-end
-
-
-
 # combine Ruby 2.0.0dev or REE with "preload_app true" for memory savings
 # http://rubyenterpriseedition.com/faq.html#adapt_apps_for_cow
 preload_app true
