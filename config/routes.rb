@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
     scope module: :v1 do
        post 'register_group' => 'b2b#create_group'
-
+       get 'documentation' => 'b2b#documentation', defaults: {format: 'html'}
     end
   end
 
