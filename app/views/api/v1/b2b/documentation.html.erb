@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/b2b/documentation/" style="padding-top: 10px;">Grupo 3</a>
+          <a class="navbar-brand" href="/b2b/documentation/" style="padding-top: 10px;">Grupo 7</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -21,10 +21,10 @@
       
       
 	<div class="page-header">
-		<h1>Documentación Sistema B2B <small>Grupo 3</small></h1>
+		<h1>Documentación Sistema B2B <small>Grupo 7</small></h1>
 	</div>
 	<p>Aquí encontrarás la documentación detallada de nuestro sistema B2B.</p>
-	<p><strong>Host:</strong> <code>http://integra3.ing.puc.cl</code></p>
+	<p><strong>Host:</strong> <code>http://integra3.ing.puc.cl</div></p>
 	
 
 	<!-- Authentification -->
@@ -34,26 +34,24 @@
 		</div>
 		<div class="panel-body">
 			<p>La Api cuenta con autentificación por Token, por lo que cada request debe llevar el siguiente Header:</p>
-			<p><pre>
-				<code>
+			<p><div class="resume">
 					Authorization Token #token
-				</code>
-				</pre>
+				</div>
 			</p>
 			<p>Si el Header no esta presente devuelve la siguiente respuesta:</p>
-			<pre><code>
+			<div class="resume">
 				Status Code: 401 UNAUTHORIZED
 				{
     				"detail": "Authentication credentials were not provided."
 				}
-			</code> </pre>
+			</div> 
 			<p>Si el token no es válido devuelve la siguiente respuesta:</p>
-			<pre><code>
+			<div class="resume">
 				Status Code: 401 UNAUTHORIZED
 				{
 				    "detail": "Invalid token."
 				}
-			</code> </pre>
+			</div> 
 		</div>
 	</div>
 
@@ -64,28 +62,28 @@
 		</div>
 		<div class="panel-body">
 			<p><strong>Descripción:</strong> Permite obtener el token de un grupo determinado utilizando su nombre de usuario y contraseña.</p>
-			<p><strong>Method:</strong> <code>POST</code></p>
-			<p><strong>Url:</strong> <code>/b2b/get_token/</code></p>
-			<p><strong>Headers:</strong> <code>Content-Type: application/json, Accept: application/json</code></p>
+			<p><strong>Method:</strong> <code>POST</div></p>
+			<p><strong>Url:</strong> <code>/b2b/get_token/</div></p>
+			<p><strong>Headers:</strong> <code>Content-Type: application/json, Accept: application/json</div></p>
 			<p><strong>Parámetros:</strong>
 			<code>
 					username: (string), 
 					password: (string)
-			</code>
+			</div>
 			</p>
 			
 			<p><strong>Autentificación:</strong></p>
 			<p><strong>Respuesta:</strong></p>
 			
 			<p>En caso de éxito:</p>
-			<pre><code>
+			<div class="resume">
 				Status Code: 200 OK
 				{
 				    "token": #token
 				}
-			</code></pre>
+			</div>
 			<p>Si faltan alguno de los parámetros:</p>
-			<pre><code>
+			<div class="resume">
 				Status Code: 400 BAD REQUEST
 				{
 				    "username":
@@ -97,9 +95,9 @@
 				        "This field is required."
 				    ]
 				}
-			</code></pre>
+			</div>
 			<p>Nombre de usuario o contraseña incorrectos:</p>
-			<pre><code>
+			<div class="resume">
 				Status Code: 400 BAD REQUEST
 				{
 				    "non_field_errors":
@@ -107,10 +105,10 @@
 				        "Unable to log in with provided credentials."
 				    ]
 				}
-			</code></pre>
+			</div>
 			<p><strong>Ejemplo:</strong></p>
-			<pre>
-				<code>
+			
+				<div class="resume">
 					REQUEST:
 					POST /b2b/get_token/ HTTP/1.1
 					Host: http://integra3.ing.puc.cl
@@ -119,7 +117,6 @@
 					{
 						"username": "grupo1",
 						"password": "passwordgrupo1",
-						
 					}
 
 					RESPONSE:
@@ -128,8 +125,8 @@
 					{
 						"token": "489e20dfa5274807cd91241b1942308730823c0a"
 					}
-				</code>
-			</pre>
+				</div>
+			
 		</div>
 	</div>
 
@@ -140,9 +137,9 @@
 		</div>
 			<div class="panel-body">
 				<p><strong>Descripción:</strong> Permite enviar una orden de compra de un producto determinado.</p>
-				<p><strong>Method:</strong> <code>POST</code></p>
-				<p><strong>Url:</strong> <code>/b2b/new_order/</code></p>
-				<p><strong>Headers:</strong> <code>Content-Type: application/json, Accept: application/json</code></p>
+				<p><strong>Method:</strong> <code>POST</div></p>
+				<p><strong>Url:</strong> <code>/b2b/new_order/</div></p>
+				<p><strong>Headers:</strong> <code>Content-Type: application/json, Accept: application/json</div></p>
 				<p><strong>Parámetros:</strong>
 				<code>
 						order_id: (string), 
@@ -152,21 +149,21 @@
 						date_delivery: (string) opcional, 
 						quantity: (int) opcional, 
 						price: (int) opcional
-				</code>
+				</div>
 				</p>
 				
-				<p><strong>Autentificación:</strong> <code>Authorization Token #token</code></p>
+				<p><strong>Autentificación:</strong> <code>Authorization Token #token</div></p>
 				<p><strong>Respuesta:</strong></p>
 				<p>En caso de éxito:</p>
-				<pre><code>
+				<div class="resume">
 					Status Code: 200 OK
 					{
 					    "success": true,
 					    "message": "La orden de compra ha sido recibida exitosamente."
 					}
-				</code></pre>
+				</div>
 				<p>Si hay error:</p>
-				<pre><code>
+				<div class="resume">
 					Status Code: 400 BAD REQUEST
 					{
 					    "success": false,
@@ -175,9 +172,9 @@
 					        "This field is required."
 					    ],
 					}
-				</code></pre>
+				</div>
 				<p><strong>Ejemplo:</strong></p>
-				<pre><code>
+				<div class="resume">
 					REQUEST:
 					POST /b2b/new_order/ HTTP/1.1
 					Host: http://integra3.ing.puc.cl
@@ -202,7 +199,7 @@
 					    "success": true,
 					    "message": "La orden de compra ha sido recibida exitosamente."
 					}
-				</code></pre>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -212,7 +209,7 @@
     </div>
     <footer class="footer">
       <div class="container" style="text-align: center;">
-        <p class="text-muted" style="margin-top:20px;">© Grupo 3 | Taller de Integracion 2015</p>
+        <p class="text-muted" style="margin-top:20px;">© Grupo 7 | Taller de Integracion</p>
       </div>
     </footer>
     

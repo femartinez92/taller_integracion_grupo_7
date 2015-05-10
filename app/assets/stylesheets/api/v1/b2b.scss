@@ -1,3 +1,38 @@
 // Place all the styles related to the api/v1/b2b controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.resume {
+  border: 1px;
+  width: 98%;
+  padding: 10px 50px;
+  border-radius: 20px;
+  border-style: dashed;
+  border-color: green;
+  background-color: #DBD9A7;
+  border-collapse: separate;
+  word-break: break-all;
+
+}
+
+
+.header_table > td {
+  padding-left: 5px;
+  text-decoration: underline;
+}
+
+
+
+.url {
+  color: #346291;
+}
+
+.user_complete,
+.descripcion {
+  color: #349034;
+}
+
+.texto {
+  margin-left: 2%;
+  color: #262626;
+}
