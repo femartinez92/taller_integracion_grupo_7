@@ -13,3 +13,138 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url('http://fonts.googleapis.com/css?family=Open+Sans');
+
+* {
+  font-family: 'Open Sans' !important;
+}
+
+body {
+  background: rgba(20, 70, 121, 0.9) !important;
+  color: #333;
+  font-family: arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+#banner {
+  min-width: 800px;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 180px;
+  padding: 0px 0px 0px 0px;
+  display: flex;
+  width: 100%;
+}
+
+#body {
+  border-radius: 30px;
+  margin: 40px auto 40px auto;
+  min-width: 800px;
+  max-width: 1500px;
+  min-height: 500px;
+  display: flex;
+  background: white;
+}
+
+.metro div, .metro span, .metro p {
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+#content {
+  padding: 0em 20px 0em 20px;
+  color: #000;
+  font-size: 16px;
+}
+
+
+#notice {
+  display: block;
+  color: white;
+  opacity: 0.7;
+  background: #009a00;
+  padding-left: 10px;
+}
+
+h1 {
+	padding: 30px 60px;
+	color: darkgray !important;
+}
+
+.metro p {
+  margin: 0 0 7pt;
+  font-family: 'Segoe UI_', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 11pt;
+  line-height: 18pt;
+  letter-spacing: 0.02em;
+}
+
+.metro h3 {
+  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+  letter-spacing: 0.01em;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 2.2rem;
+  line-height: 2.2rem;
+  font-weight: bold;
+  padding: 0;
+  margin: 30px 0;
+}
+
+.metro h4 {
+  font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #000000;
+  font-size: 1.6rem;
+  line-height: 3rem;
+  letter-spacing: 0.02em;
+  padding: 10px 0;
+  margin: 10px 0;
+  display: inline;
+}
+
+.metro span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.curl {
+  color: #C1413C;
+}
+
+.url {
+  color: #346291;
+}
+
+.user_complete {
+  color: #349034;
+}
+
+#body #main_content {
+  min-width: 600px;
+  float: left;
+  display: inline-block;
+  padding: 20px 50px;
+  color: #000;	
+  flex: 1;
+}
+
+.developer_command, .resume {
+  border: 1px;
+  width: 98%;
+  padding: 0px 20px;
+  margin: 0 auto;
+  border-radius: 20px;
+  border-style: dashed;
+  border-color: green;
+  background-color: #DBD9A7;
+  border-collapse: separate;
+  font-family: monospace;
+  white-space: pre;
+  
+}
