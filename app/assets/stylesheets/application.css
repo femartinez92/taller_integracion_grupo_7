@@ -39,7 +39,7 @@ body {
 }
 
 #body {
-  border-radius: 30px;
+  //border-radius: 0px;
   margin: 40px auto 40px auto;
   min-width: 800px;
   max-width: 1500px;
@@ -139,7 +139,7 @@ h1 {
   width: 98%;
   padding: 0px 20px;
   margin: 0 auto;
-  border-radius: 20px;
+  border-radius: 10px;
   border-style: dashed;
   border-color: green;
   background-color: #DBD9A7;

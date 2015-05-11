@@ -13,43 +13,13 @@
 					    "token": #token
 					}
 				</p>
-				<h3>Obtener Token</h3>
-				<h4>Descripción: </h4>Permite obtener el token de un grupo determinado utilizando su nombre de usuario y contraseña.<br>
-				<h4>Método: </h4>POST <br>
-				<h4>URL: </h4> /api/register_group<br>
-				<h4>Headers: </h4>dpofrwipoeg<br>
-				<h4>Parámetros: </h4>fwegiujrg<br>
+				<%= render "api/v1/b2b/register_group" %>
+				<%= render "api/v1/b2b/obtener_token" %>
+				<%= render "api/v1/b2b/orden_creada" %>
+				<%= render "api/v1/b2b/orden_cancelada" %>
+				<%= render "api/v1/b2b/orden_rechazada" %>
+				<%= render "api/v1/b2b/orden_aceptada" %>
 
-				<br>
-				Si falta alguno de los parámetros:
-				<br><br>
-				<p class="developer_command">
-						Status Code: 400 BAD REQUEST
-					{
-					    "username":
-					    [
-					        "This field is required."
-					    ],
-					    "password":
-					    [
-					        "This field is required."
-					    ]
-					}
-				</p>
-				<br>
-				Nombre de usuario o contraseña incorrectos:
-				<br><br>
-				<p class="developer_command">
-					Status Code: 400 BAD REQUEST
-					{
-					    "non_field_errors":
-					    [
-					        "Unable to log in with provided credentials."
-					    ]
-					}
-				</p>
-
-				<h3>Comprar Producto</h3>
 			</div>
 		</div>
 	</div>

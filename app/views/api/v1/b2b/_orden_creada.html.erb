@@ -1,0 +1,35 @@
+<h3>Orden de compra creada</h3>
+<h4>Descripción: </h4>Avisa que se genero una orden de compra<br>
+<h4>Método: </h4>POST <br>
+<h4>URL: </h4> /api/create_order<br>
+<h4>Headers: </h4>Authentication token<br>
+<h4>Parámetros: </h4>order_id: integer<br>
+
+<br>
+Si falta alguno de los parámetros:
+<br><br>
+<p class="developer_command">
+		Status Code: 400 BAD REQUEST
+	{
+	    "username":
+	    [
+	        "This field is required."
+	    ],
+	    "password":
+	    [
+	        "This field is required."
+	    ]
+	}
+</p>
+<br>
+Token incorrecto:
+<br><br>
+<p class="developer_command">
+	Status Code: 400 BAD REQUEST
+	{
+	    "non_field_errors":
+	    [
+	        "Unable to log in with provided credentials."
+	    ]
+	}
+</p>
