@@ -14,13 +14,9 @@ Rails.application.routes.draw do
 
 
  namespace :api, defaults: {format: 'json'} do
-
-    #Archivos relevantes para la API
-    ## /lib/api_constraints
-    ## /app/controllers/api  (todo lo que esta dentro de esa carpeta)
-
     scope module: :v1 do
        post 'register_group' => 'b2b#create_group'
+       
        get 'documentation' => 'b2b#documentation', defaults: {format: 'html'}
     end
   end

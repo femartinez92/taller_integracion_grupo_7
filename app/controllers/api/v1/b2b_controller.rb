@@ -6,25 +6,21 @@ class Api::V1::B2bController < ApplicationController
 
 		respond_to do |format|
 			if @group.save
-				format.json {render json: @group.api_key}
+				format.json {render json: {status: '200',token: @group.api_key.access_token}}
 			else
 				format.json {render json: @group.errors}
 			end
 		end
 	end
 
-	 def documentation
-	 	respond_to do |format|
-	 		format.html
-	 		format.json {render json: 'probando123'}
+	def documentation
 	end
 
-	end
 	def group_params
 		params.permit(:username, :password)
 	end
 	def token
-		@token = params[:access_token]
+		@token = request.headers[:authorization]
 	end
 	def authorize
 		token

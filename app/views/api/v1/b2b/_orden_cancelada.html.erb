@@ -2,8 +2,15 @@
 <h4>Descripción: </h4>Avisa que se una orden de compra emitida al grupo 7 fue cancelada<br>
 <h4>Método: </h4>DELETE <br>
 <h4>URL: </h4> /api/canceled_order<br>
-<h4>Headers: </h4>Authentication token<br>
+<h4>Headers: </h4>authorization: string<br>
 <h4>Parámetros: </h4>order_id: integer<br>
+<h4>Ejemplo:</h4>
+<br>
+<p class="developer_command">
+	curl -X POST http://integra7.ing.puc.cl/api/canceled_order -H '"authorization: f90cf1bd6b5b7da270a2930d0ac8bbf8"' -d "order_id=1234"
+	
+</p>
+
 
 <br>
 Si falta alguno de los parámetros:

@@ -2,8 +2,14 @@
 <h4>Descripción: </h4>Avisa que una orden de compra emitida por el grupo 7 fue aceptada<br>
 <h4>Método: </h4>PUT <br>
 <h4>URL: </h4> /api/accepted_order<br>
-<h4>Headers: </h4>Authentication token<br>
+<h4>Headers: </h4>authorization: string<br>
 <h4>Parámetros: </h4>order_id: integer<br>
+
+<h4>Ejemplo:</h4>
+<br>
+<p class="developer_command">
+	curl -X POST http://integra7.ing.puc.cl/api/accepted_order -H '"authorization: f90cf1bd6b5b7da270a2930d0ac8bbf8"' -d "order_id=1234"
+</p>
 
 <br>
 Si falta alguno de los parámetros:

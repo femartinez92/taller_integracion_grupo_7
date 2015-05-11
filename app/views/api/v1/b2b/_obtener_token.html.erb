@@ -2,9 +2,13 @@
 <h4>Descripción: </h4>Permite obtener el token del grupo<br>
 <h4>Método: </h4>GET <br>
 <h4>URL: </h4> /api/get_token<br>
-<h4>Headers: </h4>dpofrwipoeg<br>
 <h4>Parámetros: </h4>fwegiujrg<br>
+<h4>Ejemplo:</h4>
+<br>
+<p class="developer_command">
+	curl -X POST http://integra7.ing.puc.cl/api/get_token -d "username=grupo7" -d "password=no_olvidare_la_contrasenha"
 
+</p>
 <br>
 Si falta alguno de los parámetros:
 <br><br>
@@ -22,15 +26,6 @@ Si falta alguno de los parámetros:
 	}
 </p>
 <br>
-Nombre de usuario o contraseña incorrectos:
-<br><br>
-<p class="developer_command">
-	Status Code: 400 BAD REQUEST
-	{
-	    "non_field_errors":
-	    [
-	        "Unable to log in with provided credentials."
-	    ]
-	}
-</p>
+
+
 
