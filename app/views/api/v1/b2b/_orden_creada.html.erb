@@ -1,7 +1,7 @@
 <h3>Orden de compra creada</h3>
-<h4>Descripción: </h4>Avisa que se genero una orden de compra<br>
+<h4>Descripción: </h4>Avisa que se generó una orden de compra<br>
 <h4>Método: </h4>POST <br>
-<h4>URL: </h4> /api/create_order<br>
+<h4>URL: </h4> $HOST/api/create_order<br>
 <h4>Headers: </h4>authorization: string<br>
 <h4>Parámetros: </h4>order_id: integer<br>
 
@@ -10,33 +10,23 @@
 <p class="developer_command">
 	curl -X POST http://integra7.ing.puc.cl/api/create_order -H '"authorization: f90cf1bd6b5b7da270a2930d0ac8bbf8"' -d "order_id=1234"
 
-</p>
+	Respuesta. Si la orden de compra se crea exitosamente:
+	{"status":"200","order_id":"1234"}
 
+</p>
 <br>
 Si falta alguno de los parámetros:
 <br><br>
 <p class="developer_command">
-		Status Code: 400 BAD REQUEST
-	{
-	    "username":
-	    [
-	        "This field is required."
-	    ],
-	    "password":
-	    [
-	        "This field is required."
-	    ]
-	}
+		{“status”:400,”description”:”Missing parameter”}
+		
 </p>
 <br>
+
 Token incorrecto:
 <br><br>
 <p class="developer_command">
-	Status Code: 400 BAD REQUEST
-	{
-	    "non_field_errors":
-	    [
-	        "Unable to log in with provided credentials."
-	    ]
-	}
+		{“status”:”400”, “description”:”Unable to log in with provided credentials."}
+		
 </p>
+<br>

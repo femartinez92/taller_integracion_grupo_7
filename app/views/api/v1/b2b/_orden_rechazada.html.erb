@@ -1,31 +1,32 @@
 <h3>Orden de compra rechazada</h3>
-<h4>Descripción: </h4>Avisa que se una orden de compra emitida por el grupo 7 fue rachazada<br>
-<h4>Método: </h4>DELETE <br>
-<h4>URL: </h4> /api/rejected_order<br>
+<h4>Descripción: </h4>Avisa que una orden de compra emitida por el grupo 7 fue rachazada<br>
+<h4>Método: </h4>PUT <br>
+<h4>URL: </h4> $HOST/api/rejected_order<br>
 <h4>Headers: </h4>authorization: string<br>
 <h4>Parámetros: </h4>order_id: integer<br>
 
 <h4>Ejemplo:</h4>
 <br>
 <p class="developer_command">
-	curl -X POST http://integra7.ing.puc.cl/api/rejected_order -H '"authorization: f90cf1bd6b5b7da270a2930d0ac8bbf8"' -d "order_id= 1234"
+	curl -X PUT http://integra7.ing.puc.cl/api/rejected_order -H '"authorization: f90cf1bd6b5b7da270a2930d0ac8bbf8"' -d "order_id= 1234"
+
+	Respuesta.
+	{"status":"200","order_id":"31234"}
 
 </p>
-
 <br>
 Si falta alguno de los parámetros:
 <br><br>
 <p class="developer_command">
-		Status Code: 400 BAD REQUEST
-	{
-	    "username":
-	    [
-	        "This field is required."
-	    ],
-	    "password":
-	    [
-	        "This field is required."
-	    ]
-	}
+		{“status”:400,”description”:”Missing parameter”}
+		
+</p>
+<br>
+
+Si el token es inválido
+<br><br>
+<p class="developer_command">
+		{“status”:401, “description”:”Authentication failed"}
+		
 </p>
 <br>

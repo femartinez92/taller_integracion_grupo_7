@@ -1,7 +1,7 @@
 <h3>Registrar grupo</h3>
 <h4>Descripción: </h4>Permite registrar el grupo y obtener el token utilizando su nombre de usuario y contraseña.<br>
 <h4>Método: </h4>POST <br>
-<h4>URL: </h4> /api/register_group<br>
+<h4>URL: </h4> $HOST/api/register_group<br>
 <h4>Parámetros: </h4>username: string , password: string<br>
 
 
@@ -20,16 +20,14 @@
 Si falta alguno de los parámetros:
 <br><br>
 <p class="developer_command">
-		Status Code: 400 BAD REQUEST
-	{
-	    "username":
-	    [
-	        "This field is required."
-	    ],
-	    "password":
-	    [
-	        "This field is required."
-	    ]
-	}
+		{“status”:400,”description”:”Missing parameter”}
+		
+</p>
+<br>
+Si el grupo ya existe:
+<br><br>
+<p class="developer_command">
+		{“status”:”409”,”description”:”Group already exists”}
+		
 </p>
 <br>
