@@ -16,7 +16,7 @@ Rails.application.routes.draw do
  namespace :api, defaults: {format: 'json'} do
     scope module: :v1 do
        post 'register_group' => 'b2b#create_group'
-       get 'get_token' => 'b2b#token'
+       get 'get_token' => 'b2b#get_token'
        get 'documentation' => 'b2b#documentation', defaults: {format: 'html'}
     end
   end

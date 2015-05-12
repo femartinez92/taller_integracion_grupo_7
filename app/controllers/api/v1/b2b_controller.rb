@@ -19,13 +19,13 @@ class Api::V1::B2bController < ApplicationController
 	def group_params
 		params.permit(:username, :password)
 	end
+
+	private
+
 	def token
 		@token = request.headers[:authorization]
-		respond_to do |format|
-			format.json {render json: {status: '600',token: @group.api_key.access_token}}
-			
-		end
 	end
+	
 	def authorize
 		token
 		if ApiKey.where(access_token: @token)

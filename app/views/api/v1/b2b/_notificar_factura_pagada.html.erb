@@ -1,0 +1,28 @@
+<h3>Notificar factura pagada</h3>
+<h4>Descripción:</h4> Avisar que una factura ha sido pagada<br>
+<h4>Método:</h4> PUT <br>
+<h4>URL:</h4>  $HOST/api/invoice_paid<br>
+<h4>Headers: </h4>
+		authorization: string<br>
+<h4>Parámetros: </h4>
+  		invoice_id: integer<br>
+<h4>Ejemplo:</h4><br>
+<br>
+<p class="developer_command">
+curl -X PUT http://integra7.ing.puc.cl/api/invoice_paid -H '"authorization: f90cf1bd6b5b7da270a2930d0ac8bbf8"' -d "invoice_id=1234"
+
+</p>
+
+<h4>Respuestas:</h4>
+<br>
+<p class="developer_command">
+Si la factura es aceptada
+{“status”:”200”,”invoice_id”:”1234”}
+
+Si falta alguno de los parámetros:
+{“status”:”400”,”description”:”Missing parameter”}
+	   
+Si el token es inválido
+{“status”:401, “description”:”Authentication failed"}
+
+</p>
