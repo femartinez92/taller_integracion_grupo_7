@@ -7,25 +7,20 @@
 <h4>Ejemplo:</h4>
 <br>
 <p class="developer_command">
-	curl -X DELETE http://integra7.ing.puc.cl/api/canceled_order -H '"authorization: f90cf1bd6b5b7da270a2930d0ac8bbf8"' -d "order_id=1234"
-	
-	Respuesta. Si la orden se eliminó exitosamente:
-	{"status":"200","order_id":"1234"}
+curl -X DELETE http://integra7.ing.puc.cl/api/canceled_order -H '"authorization: f90cf1bd6b5b7da270a2930d0ac8bbf8"' -d "order_id=1234"
 
 </p>
+
+<h4>Respuestas:</h4>
 <br>
+<p class="developer_command">
+Orden de compra cancelada:
+{"status":"200","order_id":"31234"}
+
 Si falta alguno de los parámetros:
-<br><br>
-<p class="developer_command">
-		{“status”:400,”description”:”Missing parameter”}
-		
-</p>
-<br>
-
+{“status”:”400”,”description”:”Missing parameter”}
+	   
 Si el token es inválido
-<br><br>
-<p class="developer_command">
-		{“status”:401, “description”:”Authentication failed"}
-		
+{“status”:401, “description”:”Authentication failed"}
+
 </p>
-<br>
