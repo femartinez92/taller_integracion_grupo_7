@@ -15,8 +15,19 @@ Rails.application.routes.draw do
 
  namespace :api, defaults: {format: 'json'} do
     scope module: :v1 do
+      #Métodos para registro y token
        post 'register_group' => 'b2b#create_group'
        get 'get_token' => 'b2b#get_token'
+      #Métodos para orden de compra
+       post 'create_order' => 'b2b#create_order'
+       delete 'canceled_order' => 'b2b#canceled_order'
+       put 'accepted_order' => 'b2b#accepted_order'
+       put 'rejected_order' => 'b2b#rejected_order'
+      #Métodos para las facturas
+       post 'issued_invoice' => 'b2b#issued_invoice'
+       put 'invoice_paid' => 'b2b#invoice_paid'
+       put 'rejected_invoice' => 'b2b#rejected_invoice'
+      #Documentacion
        get 'documentation' => 'b2b#documentation', defaults: {format: 'html'}
     end
   end

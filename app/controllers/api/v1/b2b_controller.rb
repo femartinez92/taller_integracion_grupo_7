@@ -1,26 +1,102 @@
 class Api::V1::B2bController < ApplicationController
 	protect_from_forgery with: :null_session
-	before_action :authorize, except:[:create_group, :documentation]
-	def create_group
-		@group = Group.new(group_params)
+	before_action :authorize, except:[:create_group, :documentation, :get_token]
+	before_action :group_params, only: [:create_group, :get_token]
+	before_action :order_params, only: [:create_order, :accepted_order, :rejected_order, :canceled_order]
 
+	# Este método recibe los parametros username y password para crear un usuario de grupo
+	# Si el grupo es creado satisfactoriamente, se devuelve el token.
+	# Errores: 
+	#  - Falta el usuario o la contraseña
+	#  - EL nombre de grupo ya existe
+	def create_group
+		@group = Group.new(@params)
 		respond_to do |format|
 			if @group.save
-				format.json {render json: {status: '200',token: @group.api_key.access_token}}
+				format.json {render json: {token: @group.api_key.access_token},status:200}
 			else
-				format.json {render json: @group.errors}
+				if @group.errors.messages[:username] || @group.errors.messages[:password]
+					 if @group.errors.messages[:username] == '["Missing parameters"]' || @group.errors.messages[:password]
+					 	format.json {render json: {description: 'Missing parameters'},status:400}
+					 else
+					 	format.json {render json: {description: 'Group already exists'},status:409}
+					 end
+				else
+					format.json {render json: {description: @group.errors}, status:500 }
+				end
+			end
+		end
+	end
+	
+	# Este método recibe el usuario y contraseña de un grupo y devuelve el token asociado al grupo
+	def get_token
+		respond_to do |format|
+			if @params[:username] && @params[:password]
+				@group = Group.where(username: @params[:username])
+				if @group
+					if @group.verify_password(@params[:password])
+						format.json {render json: {token: @group.api_key.access_token},status:200}
+					else
+						format.json {render json: {description: 'Invalid password'},status:404}
+					end
+				else
+					format.json {render json: {description: 'Group not found'},status:404}
+				end
+			else
+				format.json {render json: {description: 'Missing parameters'},status:400}
 			end
 		end
 	end
 
+	# Métodos orden de compra
+
+	#Este método avisa que se generó una orden de compra
+	def create_order
+		
+	end
+	#Este método avisa que una orden de compra fue aceptada
+	def accepted_order
+		
+	end
+
+	#Este método avisa que una orden de compra fue rechazada
+	def rejected_order
+
+	end
+
+	#este método avisa que una orden de compra fue cancelada
+	def canceled_order
+
+	end
+
+	# Métodos facturas
+	# Este método avisa que se genero una factura
+	def issued_invoice
+		
+	end
+	# Este método avisa que una factura se pago
+	def invoice_paid
+		
+	end
+	# Este método avisa que una factura fue rechazada
+	def rejected_invoice
+		
+	end
+
+	#Este metodo es para la página estática de la documentación
 	def documentation
 	end
 
-	def group_params
-		params.permit(:username, :password)
-	end
-
 	private
+	def invoice_params
+		@invoice = params.permit(:invoice_id)
+	end
+	def order_params
+		@order = params.permit(:order_id)
+	end
+	def group_params
+		@params = params.permit(:username, :password)
+	end
 
 	def token
 		@token = request.headers[:authorization]
@@ -31,7 +107,9 @@ class Api::V1::B2bController < ApplicationController
 		if ApiKey.where(access_token: @token)
 			return true
 		else
-			return false
+			respond_to do |format|
+				format.json {render json: {description: 'Invalid token'},status: :unauthorized}
+			end
 		end
 	end
 end
