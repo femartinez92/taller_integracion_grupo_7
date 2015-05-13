@@ -32,7 +32,7 @@ class Api::V1::B2bController < ApplicationController
 	def get_token
 		respond_to do |format|
 			if @params[:username] && @params[:password]
-				@group = Group.where(username: @params[:username])
+				@group = Group.where(username: @params[:username]).first
 				if @group
 					if @group.verify_password(@params[:password])
 						format.json {render json: {token: @group.api_key.access_token},status:200}
@@ -95,7 +95,16 @@ class Api::V1::B2bController < ApplicationController
 		@order = params.permit(:order_id)
 	end
 	def group_params
+		#En caso de que vengan en el header bajo estos parametros
+		username = request.headers.env["HTTP_USERNAME"]
+		password = request.headers.env["HTTP_PASSWORD"]
 		@params = params.permit(:username, :password)
+		if username
+			@params[:username] = username
+		end
+		if password
+			@params[:password] = password			
+		end
 	end
 
 	def token
