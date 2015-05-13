@@ -4,7 +4,7 @@ class Group < ActiveRecord::Base
 	validates :username, uniqueness: true
 
 	after_create  :set_api_key
-
+	#Este método verifica si la contraasseña es correcta
 	def verify_password(passwd)
 		if self.password == passwd
 			return true
@@ -12,8 +12,10 @@ class Group < ActiveRecord::Base
 			return false
 		end
 	end
-	private
 
+
+	private
+	#Este metodo asigna una api_key a el grupo
 	def set_api_key
 		self.api_key = ApiKey.create()
 	end

@@ -106,11 +106,11 @@ class Api::V1::B2bController < ApplicationController
 			@params[:password] = password			
 		end
 	end
-
 	def token
 		@token = request.headers[:authorization]
 	end
-	
+
+	#Este metodo ve si el token provisto es valido, aún no esta probado
 	def authorize
 		token
 		if ApiKey.where(access_token: @token)
